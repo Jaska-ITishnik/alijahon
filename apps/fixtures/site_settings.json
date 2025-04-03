@@ -1,0 +1,1 @@
+[{"model": "apps.sitesettings", "pk": 1, "fields": {"fee_for_operator": 4000, "fee_for_currier": 10000, "tashkent_city": 20000, "tashkent_region": 25000, "other_regions": 35000, "min_balance_amount": 100000}}]
