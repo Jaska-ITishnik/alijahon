@@ -31,3 +31,5 @@ fabric.properties
 
 .venv
 db
+apps/migrations/*
+!apps/migrations/__init__.py

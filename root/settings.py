@@ -2,10 +2,13 @@ import os
 from pathlib import Path
 
 from django.utils.translation import gettext_lazy as _
+from dotenv import load_dotenv
 
 from root.ckeditor_settings import CKEDITOR_5_CONFIGS, customColorPalette
 
 BASE_DIR = Path(__file__).resolve().parent.parent
+
+load_dotenv('.env')
 
 SECRET_KEY = 'django-insecure-2i%1#ggus-iqy6j-fl1(0_qy1mc4yav68k1o78v@y)pe*760-o'
 
@@ -24,7 +27,9 @@ INSTALLED_APPS = [
     'django_ckeditor_5',
     "debug_toolbar",
     'django.contrib.humanize',
-    'rosetta'
+    'rosetta',
+    'admin_interface',
+    'colorfield'
 ]
 
 INTERNAL_IPS = [
@@ -68,11 +73,11 @@ AUTH_USER_MODEL = 'apps.User'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'alijahon_db',
-        'USER': 'root',
-        'PASSWORD': '1',
-        'HOST': 'localhost',
-        'PORT': '3306'
+        'NAME': os.getenv('DB_NAME'),
+        'USER': os.getenv('DB_USER'),
+        'PASSWORD': os.getenv('DB_PASSWORD'),
+        'HOST': os.getenv('DB_HOST'),
+        'PORT': os.getenv('DB_PORT')
     }
 }
 
