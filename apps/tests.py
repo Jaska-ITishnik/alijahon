@@ -14,3 +14,10 @@
 #     i += 1
 # end = time.time()
 # print(max1, max2, f"Time: {end - start}")
+import os
+
+
+
+with os.scandir('my_directory/') as entries:
+    for entry in entries:
+        print(entry.name)

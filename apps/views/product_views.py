@@ -17,9 +17,6 @@ class AllProductListView(ListView):
     def get_context_data(self, *, object_list=None, **kwargs):
         ctx = super().get_context_data(object_list=object_list, **kwargs)
         ctx['categories'] = Category.objects.all()
-        # Stream.objects.filter(owner=self.request.user, stream__orders__status=Order.Status.DELIVERING).annotate(
-        #     price_=F('orders__product__product_fee') - F('discount')
-        # ).aggregate(all_amount=Sum('price_'))
 
         ctx['coins'] = (User.objects.filter(id=self.request.user.pk).annotate(
             price_=F('stream__orders__product__product_fee') - F('stream__discount')).aggregate(

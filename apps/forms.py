@@ -167,7 +167,7 @@ class TransactionModelForm(ModelForm):
         elif amount > user_balance or (
                 limit_of_requests.get('sum') and (limit_of_requests.get('sum') + amount) > user_balance):
             raise ValidationError(
-                f'''
+                f'''    
                 Exceed limit your balance: {''.join([f"{v} " if k % 3 == 0 else f"{v}" for k, v in enumerate(str(user_balance))])}
                 or limit of requests
                 ''')
